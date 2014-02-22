@@ -1,0 +1,35 @@
+{
+  "name": "tilemap",
+  "version": "0.1.0",
+  "description": "Tilemap for JavaScript games",
+  "main": "dist/tilemap.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freezedev/tilemap.git"
+  },
+  "keywords": [
+    "game",
+    "loop",
+    "preloader",
+    "input"
+  ],
+  "author": "Johannes Stein",
+  "license": "Public domain",
+  "bugs": {
+    "url": "https://github.com/freezedev/tilemap/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt": "~0.4.2",
+    "grunt-amd-tamer": "~0.1.7",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-dependo": "~0.1.1",
+    "grunt-mocha": "~0.4.7",
+    "matchdep": "~0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}
