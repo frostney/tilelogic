@@ -1,0 +1,26 @@
+{
+  "name": "tilemap",
+  "version": "0.1.0",
+  "homepage": "https://github.com/freezedev/tilemap",
+  "authors": [
+    "Johannes Stein <johannesstein@freeze-dev.com>"
+  ],
+  "description": "Tilemap for JavaScript games",
+  "main": "dist/tilemap.js",
+  "keywords": [
+    "tilemap",
+    "tile",
+    "game"
+  ],
+  "license": "Public domain",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "udefine": "~0.8.8"
+  }
+}
