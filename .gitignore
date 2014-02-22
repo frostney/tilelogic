@@ -46,7 +46,7 @@ bower_components
 
 # Generated files #
 ###################
-generated
+tmp
 
 # Sublime #
 ###########
