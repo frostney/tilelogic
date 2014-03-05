@@ -20,3 +20,8 @@ tilemap.map(function() {
 
 });
 ```
+
+Compare two tilemaps with each other
+```javascript
+tilemap.equals(new TileMap(10, 10));
+```
