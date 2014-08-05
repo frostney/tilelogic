@@ -12,9 +12,7 @@
   },
   "keywords": [
     "game",
-    "loop",
-    "preloader",
-    "input"
+    "tilemap"
   ],
   "author": "Johannes Stein",
   "license": "Public domain",
