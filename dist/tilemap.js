@@ -57,8 +57,8 @@ udefine('tilemap', function() {
     TileMap.defaultType = 'empty';
 
     TileMap.prototype.generateTiles = function(width, height) {
-      for (var x = width.min, xl = width.max - 1; x < xl; x++) {
-        for (var y = height.min, yl = height.max - 1; y < yl; y++) {
+      for (var x = width.min, xl = width.max; x < xl; x++) {
+        for (var y = height.min, yl = height.max; y < yl; y++) {
           this.tile[x] = this.tile[x] || [];
           this.tile[x].push(TileMap.defaultType);
         }
