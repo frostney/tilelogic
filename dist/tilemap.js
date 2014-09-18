@@ -1,11 +1,11 @@
-(function(name) {
+(function(udefine, name) {
   udefine.configure(function(root) {
     udefine.inject.add(name, {
       root: root,
       name: 'Tilemap'
     });
   });
-})('tilemap');
+})(window.udefine, 'tilemap');
 udefine('tilemap', function() {
 
   var TileMap = (function() {
@@ -65,7 +65,7 @@ udefine('tilemap', function() {
       }
     };
 
-    TileMap.prototype.each = function(callback) {
+    TileMap.prototype.each = TileMap.prototype.forEach = function(callback) {
       this.map(callback);
       return;
     };
