@@ -57,7 +57,7 @@ udefine(function() {
       }
     };
 
-    TileMap.prototype.each = function(callback) {
+    TileMap.prototype.each = TileMap.prototype.forEach = function(callback) {
       this.map(callback);
       return;
     };
