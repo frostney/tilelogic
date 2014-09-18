@@ -1,8 +1,8 @@
-(function(name) {
+(function(udefine, name) {
   udefine.configure(function(root) {
     udefine.inject.add(name, {
       root: root,
       name: 'Tilemap'
     });
   });
-})('tilemap');
+})(window.udefine, 'tilemap');
