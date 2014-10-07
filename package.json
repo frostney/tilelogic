@@ -1,6 +1,6 @@
 {
   "name": "tilemap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tilemap for JavaScript games",
   "main": "dist/tilemap.js",
   "scripts": {
