@@ -49,17 +49,21 @@ udefine('tilemap', function() {
 
       if (data != null) {
         this.each(function(x, y) {
-          // If it's not an array, fill everything with the same object
-          // Or every row, depending how the data object is specified
-          if (Array.isArray(data)) {
-            if (Array.isArray(data[x])) {
-              self.tile[x][y] = data[x][y];              
-            } else {
-              self.tile[x][y] = data[x];
-            }
+          if (typeof data === 'function') {
+            self.tile[x][y] = data(x, y);
           } else {
-            self.tile[x][y] = data;
-          }          
+            // If it's not an array, fill everything with the same object
+            // Or every row, depending how the data object is specified
+            if (Array.isArray(data)) {
+              if (Array.isArray(data[x])) {
+                self.tile[x][y] = data[x][y];              
+              } else {
+                self.tile[x][y] = data[x];
+              }
+            } else {
+              self.tile[x][y] = data;
+            }  
+          }                 
         });
       }
     };

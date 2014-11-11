@@ -42,7 +42,7 @@ udefine(function() {
       if (data != null) {
         this.each(function(x, y) {
           if (typeof data === 'function') {
-            self.tself.t
+            self.tile[x][y] = data(x, y);
           } else {
             // If it's not an array, fill everything with the same object
             // Or every row, depending how the data object is specified
