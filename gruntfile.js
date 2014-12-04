@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
     concat: {
       all: {
-        src: ['udefine/*.js', 'tmp/**/*.js'],
+        src: ['tmp/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },

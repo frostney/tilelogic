@@ -25,3 +25,7 @@ Compare two tilemaps with each other
 ```javascript
 tilemap.equals(new TileMap(10, 10));
 ```
+
+License
+-------
+Tilemap is public domain. If this does not work for you, you can alternatively use the MIT license.

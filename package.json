@@ -1,6 +1,6 @@
 {
   "name": "tilemap",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Tilemap for JavaScript games",
   "main": "dist/tilemap.js",
   "scripts": {
@@ -12,7 +12,9 @@
   },
   "keywords": [
     "game",
-    "tilemap"
+    "tilemap",
+    "tile",
+    "tiles"
   ],
   "author": "Johannes Stein",
   "license": "Public domain",
