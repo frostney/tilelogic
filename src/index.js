@@ -1,9 +1,9 @@
 (function() {
 
   var factory = function() {
-    var TileMap = (function() {
+    var TileLogic = (function() {
 
-      var TileMap = function(width, height, data) {
+      var TileLogic = function(width, height, data) {
         if (typeof width === 'number') {
           width = {
             min: 0,
@@ -61,23 +61,23 @@
         }
       };
 
-      TileMap.defaultType = 'empty';
+      TileLogic.defaultType = 'empty';
 
-      TileMap.prototype.generateTiles = function(width, height) {
+      TileLogic.prototype.generateTiles = function(width, height) {
         for (var x = width.min, xl = width.max; x < xl; x++) {
           for (var y = height.min, yl = height.max; y < yl; y++) {
             this.tile[x] = this.tile[x] || [];
-            this.tile[x].push(TileMap.defaultType);
+            this.tile[x].push(TileLogic.defaultType);
           }
         }
       };
 
-      TileMap.prototype.each = TileMap.prototype.forEach = function(callback) {
+      TileLogic.prototype.each = TileLogic.prototype.forEach = function(callback) {
         this.map(callback);
         return;
       };
 
-      TileMap.prototype.map = function(callback) {
+      TileLogic.prototype.map = function(callback) {
         var result = [];
 
         var tile = this.tile;
@@ -92,13 +92,13 @@
         return result;
       };
 
-      TileMap.prototype.flatten = function() {
+      TileLogic.prototype.flatten = function() {
         return this.map(function(x, y, content) {
           return content;
         });
       };
 
-      TileMap.prototype.flattenWithModifier = function() {
+      TileLogic.prototype.flattenWithModifier = function() {
         return this.map(function(x, y, content) {
           return {
             x: x,
@@ -108,15 +108,15 @@
         });
       };
 
-      TileMap.prototype.equals = function(tilemap) {
+      TileLogic.prototype.equals = function(TileLogic) {
         var result = true;
 
-        if (tilemap instanceof TileMap) {
+        if (TileLogic instanceof TileLogic) {
           var tile = this.tile;
           for (var x = 0, xl = tile.length; x < xl; x++) {
             (function(tileY) {
               for (var y = 0, yl = tileY.length; y < yl; y++) {
-                if (tilemap.tile[x][y] !== tile[x][y]) {
+                if (TileLogic.tile[x][y] !== tile[x][y]) {
                   result = false;
                   return;
                 }
@@ -130,21 +130,21 @@
         return result;
       };
 
-      return TileMap;
+      return TileLogic;
 
     })();
     
-    return TileMap;
+    return TileLogic;
   };
   
 
   if (typeof define === 'function' && define.amd) {
-    define('tilemap', [], factory);
+    define('tilelogic', [], factory);
   } else {
     if (typeof exports !== null) {
       module.exports = factory();
     } else {
-      window.TileMap = factory();
+      window.TileLogic = factory();
     }
   }
 
