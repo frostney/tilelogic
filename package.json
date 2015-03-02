@@ -2,13 +2,14 @@
   "name": "tilemap",
   "version": "0.1.3",
   "description": "Tilemap for JavaScript games",
-  "main": "dist/tilemap.js",
+  "main": "dist/tilelogic.js",
   "scripts": {
-    "test": "grunt test"
+    "grunt": "grunt",
+    "test": "npm run grunt test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/freezedev/tilemap.git"
+    "url": "https://github.com/freezedev/tilelogic.git"
   },
   "keywords": [
     "game",
@@ -19,17 +20,17 @@
   "author": "Johannes Stein",
   "license": "Public domain",
   "bugs": {
-    "url": "https://github.com/freezedev/tilemap/issues"
+    "url": "https://github.com/freezedev/tilelogic/issues"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.7.2",
-    "grunt": "~0.4.2",
+    "grunt": "^0.4.5",
     "grunt-amd-tamer": "~0.1.7",
-    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.8.0",
     "grunt-dependo": "~0.1.1",
     "grunt-mocha": "~0.4.7",
-    "matchdep": "~0.3.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-concat": "~0.3.0"
+    "matchdep": "~0.3.0"
   }
 }

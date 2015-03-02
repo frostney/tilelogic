@@ -1,15 +1,16 @@
 {
   "name": "tilemap",
   "version": "0.1.3",
-  "homepage": "https://github.com/freezedev/tilemap",
+  "homepage": "https://github.com/freezedev/tilelogic",
   "authors": [
     "Johannes Stein <johannesstein@freeze-dev.com>"
   ],
   "description": "Tilemap for JavaScript games",
-  "main": "dist/tilemap.js",
+  "main": "dist/tilelogic.js",
   "keywords": [
     "tilemap",
     "tile",
+    "tiles",
     "game"
   ],
   "license": "Public domain",
