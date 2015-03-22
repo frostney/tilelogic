@@ -141,7 +141,7 @@
   if (typeof define === 'function' && define.amd) {
     define([], factory);
   } else {
-    if (typeof exports != null) {
+    if (typeof exports !== "undefined" && exports !== null) {
       module.exports = factory();
     } else {
       window.TileLogic = factory();
