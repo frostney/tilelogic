@@ -21,14 +21,14 @@
         if (width == null) {
           width = {
             min: 0,
-            max: 4
+            max: TileLogic.defaultWidth
           };
         }
 
         if (height == null) {
           height = {
             min: 0,
-            max: 4
+            max: TileLogic.defaultHeight
           };
         }
 
@@ -62,6 +62,8 @@
       };
 
       TileLogic.defaultType = 'empty';
+      TileLogic.defaultHeight = 4;
+      TileLogic.defaultWidth = 4;
 
       TileLogic.prototype.generateTiles = function(width, height) {
         for (var x = width.min, xl = width.max; x < xl; x++) {
@@ -139,9 +141,9 @@
   
 
   if (typeof define === 'function' && define.amd) {
-    define('tilelogic', [], factory);
+    define([], factory);
   } else {
-    if (typeof exports !== null) {
+    if (typeof exports !== "undefined" && exports !== null) {
       module.exports = factory();
     } else {
       window.TileLogic = factory();
