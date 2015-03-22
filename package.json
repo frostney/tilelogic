@@ -25,7 +25,6 @@
   "devDependencies": {
     "chai": "^2.1.2",
     "grunt": "^0.4.5",
-    "grunt-amd-tamer": "~0.1.7",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-jshint": "^0.11.0",
