@@ -27,4 +27,24 @@ describe('TileLogic', function() {
     }
   });
   
+  it('#each', function(done) {
+    var t = new TileLogic(4, 4, 'empty');
+    
+    var i = 0;
+    
+    var toBeDone = function() {
+      if (t.width.max * t.height.max === i) {
+        done();
+      }
+    };
+    
+    t.each(function(x, y, type) {
+      expect(x).to.be.a('number');
+      expect(y).to.be.a('number');
+      expect(type).to.be.a('string');
+      i++;
+      toBeDone();
+    });
+  });
+  
 });
