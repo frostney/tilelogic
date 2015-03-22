@@ -10,7 +10,7 @@ Demo: http://jsfiddle.net/dzr34wnv/
 * No dependencies
 
 ## Installing
-`tilelogic` is available for NPM and Bower. Use either
+`tilelogic` is available for NPM and Bower. Use either  
 `npm install tilelogic`  
 or  
 `bower install tilelogic`  
