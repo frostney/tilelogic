@@ -5,19 +5,9 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    amd_tamer: {
-      options: {
-        base: 'src/',
-        namespace: 'tilemap'
-      },
-      scripts: {
-        src: ['src/**/*.js'],
-        dest: 'tmp/<%= pkg.name %>.js'
-      }
-    },
     concat: {
       all: {
-        src: ['tmp/**/*.js'],
+        src: ['src/**/*.js'],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },
@@ -41,7 +31,7 @@ module.exports = function(grunt) {
         configFile: 'karma.conf.js'
       }
     },
-    clean: ['dist', 'tmp'],
+    clean: ['dist'],
     dependo: {
       targetPath: 'dist',
       outputPath: './doc/dependencies',
