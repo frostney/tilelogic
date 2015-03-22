@@ -139,7 +139,7 @@
   
 
   if (typeof define === 'function' && define.amd) {
-    define('tilelogic', [], factory);
+    define([], factory);
   } else {
     if (typeof exports !== null) {
       module.exports = factory();
