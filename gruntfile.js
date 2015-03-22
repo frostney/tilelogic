@@ -36,6 +36,11 @@ module.exports = function(grunt) {
       files: ['gruntfile.js', 'src/**/*.js'],
       options: grunt.file.readJSON('.jshintrc')
     },
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      }
+    },
     clean: ['dist', 'tmp'],
     dependo: {
       targetPath: 'dist',
@@ -46,7 +51,7 @@ module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('test', 'Lints and unit tests', ['jshint']);
+  grunt.registerTask('test', 'Lints and unit tests', ['jshint', 'karma']);
   grunt.registerTask('doc', 'Generated documentation', ['dependo']);
   grunt.registerTask('default', 'Default task', ['clean', 'amd_tamer', 'concat', 'test', 'uglify']);
 
