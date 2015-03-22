@@ -21,14 +21,14 @@
         if (width == null) {
           width = {
             min: 0,
-            max: 4
+            max: TileLogic.defaultWidth
           };
         }
 
         if (height == null) {
           height = {
             min: 0,
-            max: 4
+            max: TileLogic.defaultHeight
           };
         }
 
@@ -62,6 +62,8 @@
       };
 
       TileLogic.defaultType = 'empty';
+      TileLogic.defaultHeight = 4;
+      TileLogic.defaultWidth = 4;
 
       TileLogic.prototype.generateTiles = function(width, height) {
         for (var x = width.min, xl = width.max; x < xl; x++) {
