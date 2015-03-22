@@ -43,6 +43,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', 'Lints and unit tests', ['jshint', 'karma']);
   grunt.registerTask('doc', 'Generated documentation', ['dependo']);
-  grunt.registerTask('default', 'Default task', ['clean', 'amd_tamer', 'concat', 'test', 'uglify']);
+  grunt.registerTask('default', 'Default task', ['clean', 'concat', 'test', 'uglify']);
 
 };
