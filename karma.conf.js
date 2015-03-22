@@ -5,6 +5,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
+      'dist/tilelogic.js',
       'test/*.js'
     ],
     exclude: [],
