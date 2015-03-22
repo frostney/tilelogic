@@ -2,6 +2,20 @@
 
 Provides logic for tilemaps. There is no actual drawing involved, that is something you need to do for yourself.
 
+## Features
+* Small and simple
+* Provides *only* the logic for tilemaps
+* No dependencies
+
+## Installing
+`tilelogic` is available for NPM and Bower. Use either
+`npm install tilelogic`
+or
+`bower install tilelogic`
+to install the library.
+
+Don't use Bower or NPM? Just grab the `tilelogic.js` file from the `dist` folder.
+
 ## Constructing a tilemap
 
 ```javascript
