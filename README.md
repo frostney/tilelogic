@@ -1,5 +1,9 @@
 # tilelogic
 
+[![Build Status](https://travis-ci.org/freezedev/tilelogic.svg?branch=master)](https://travis-ci.org/freezedev/tilelogic)
+[![Dependency Status](https://david-dm.org/freezedev/tilelogic.svg)](https://david-dm.org/freezedev/tilelogic)
+[![devDependency Status](https://david-dm.org/freezedev/tilelogic/dev-status.svg)](https://david-dm.org/freezedev/tilelogic#info=devDependencies)
+
 Provides logic for tilemaps. There is no actual drawing involved, that is something you need to do for yourself.
 
 Demo: http://jsfiddle.net/dzr34wnv/  
