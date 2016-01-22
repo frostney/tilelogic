@@ -49,14 +49,14 @@
               // Or every row, depending how the data object is specified
               if (Array.isArray(data)) {
                 if (Array.isArray(data[x])) {
-                  self.tile[x][y] = data[x][y];              
+                  self.tile[x][y] = data[x][y];
                 } else {
                   self.tile[x][y] = data[x];
                 }
               } else {
                 self.tile[x][y] = data;
-              }  
-            }                 
+              }
+            }
           });
         }
       };
@@ -94,7 +94,7 @@
         return result;
       };
 
-      TileLogic.prototype.flatten = function() {
+      TileLogic.prototype.flatten = TileLogic.prototype.toArray = function() {
         return this.map(function(x, y, content) {
           return content;
         });
@@ -135,10 +135,10 @@
       return TileLogic;
 
     })();
-    
+
     return TileLogic;
   };
-  
+
 
   if (typeof define === 'function' && define.amd) {
     define([], factory);
