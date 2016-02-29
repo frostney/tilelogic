@@ -84,13 +84,12 @@ class TileLogic {
   map(callback) {
     const result = [];
 
-    const tile = this.tile;
-    for (let x = 0, xl = tile.length; x < xl; x++) {
+    for (let x = 0, xl = this.tile.length; x < xl; x++) {
       (tileY => {
         for (let y = 0, yl = tileY.length; y < yl; y++) {
-          result.push(callback(x, y, tile[x][y]));
+          result.push(callback(x, y, this.tile[x][y]));
         }
-      })(tile[x]);
+      })(this.tile[x]);
     }
 
     return result;
@@ -101,6 +100,10 @@ class TileLogic {
   }
 
   flatten() {
+    return this.toArray();
+  }
+
+  flattenWithModifier() {
     // TODO: `flatten` and `flattenWithModifier` will be put together into the `flatten` function
     return this.map((x, y, content) => ({
       x,
@@ -113,16 +116,23 @@ class TileLogic {
     let result = true;
 
     if (tileLogic instanceof TileLogic) {
-      const tile = this.tile;
-      for (let x = 0, xl = tile.length; x < xl; x++) {
+      if (this.width.min !== tileLogic.width.min || this.width.max !== tileLogic.width.max) {
+        return false;
+      }
+
+      if (this.height.min !== tileLogic.height.min || this.height.max !== tileLogic.height.max) {
+        return false;
+      }
+
+      for (let x = 0, xl = this.tile.length; x < xl; x++) {
         (tileY => {
           for (let y = 0, yl = tileY.length; y < yl; y++) {
-            if (tileLogic.tile[x][y] !== tile[x][y]) {
+            if (tileLogic.tile[x][y] !== this.tile[x][y]) {
               result = false;
               return;
             }
           }
-        })(tile[x]);
+        })(this.tile[x]);
       }
     } else {
       throw new Error('Argument is not a TileLogic instance');
