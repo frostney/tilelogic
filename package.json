@@ -4,9 +4,11 @@
   "description": "Logic for tilemaps",
   "main": "dist/tilelogic.js",
   "scripts": {
-    "grunt": "grunt",
+    "prebuild": "rimraf dist",
+    "build": "rollup-babel-lib-bundler src/index.js",
     "lint": "eslint .",
-    "test": "npm run grunt test"
+    "pretest": "npm-run-all -p lint build",
+    "test": "karma start"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,12 @@
     "game",
     "tilemap",
     "tile",
-    "tiles"
+    "tiles",
+    "logic"
+  ],
+  "files": [
+    "dist",
+    "src"
   ],
   "author": "Johannes Stein",
   "license": "(Unlicense OR MIT)",
@@ -24,25 +31,21 @@
     "url": "https://github.com/freezedev/tilelogic/issues"
   },
   "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-transform-class-properties": "^6.5.2",
+    "babel-preset-es2015-loose-rollup": "^7.0.0",
     "chai": "^3.4.1",
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "^6.0.2",
     "eslint-plugin-react": "^4.1.0",
-    "grunt": "^0.4.5",
-    "grunt-contrib-clean": "^0.7.0",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-jshint": "^0.12.0",
-    "grunt-contrib-uglify": "^0.11.0",
-    "grunt-dependo": "~0.1.1",
-    "grunt-karma": "^0.10.1",
-    "grunt-mocha": "~0.4.7",
     "karma": "^0.13.19",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
     "karma-firefox-launcher": "^0.1.4",
     "karma-mocha": "^0.2.1",
     "karma-phantomjs-launcher": "^0.2.3",
-    "matchdep": "^1.0.0",
-    "mocha": "^2.2.1"
+    "mocha": "^2.2.1",
+    "npm-run-all": "^1.5.1",
+    "rollup-babel-lib-bundler": "^2.3.3"
   }
 }
