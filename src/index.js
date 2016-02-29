@@ -1,153 +1,135 @@
-(function() {
+class TileLogic {
+  constructor(initialWidth, initialHeight, data) {
+    let width;
+    let height;
 
-  var factory = function() {
-    var TileLogic = (function() {
-
-      var TileLogic = function(width, height, data) {
-        if (typeof width === 'number') {
-          width = {
-            min: 0,
-            max: width
-          };
-        }
-
-        if (typeof height === 'number') {
-          height = {
-            min: 0,
-            max: height
-          };
-        }
-
-        if (width == null) {
-          width = {
-            min: 0,
-            max: TileLogic.defaultWidth
-          };
-        }
-
-        if (height == null) {
-          height = {
-            min: 0,
-            max: TileLogic.defaultHeight
-          };
-        }
-
-        this.tile = [];
-        this.width = width;
-        this.height = height;
-
-        this.generateTiles(width, height);
-
-        var self = this;
-
-        if (data != null) {
-          this.each(function(x, y) {
-            if (typeof data === 'function') {
-              self.tile[x][y] = data(x, y);
-            } else {
-              // If it's not an array, fill everything with the same object
-              // Or every row, depending how the data object is specified
-              if (Array.isArray(data)) {
-                if (Array.isArray(data[x])) {
-                  self.tile[x][y] = data[x][y];
-                } else {
-                  self.tile[x][y] = data[x];
-                }
-              } else {
-                self.tile[x][y] = data;
-              }
-            }
-          });
-        }
+    if (typeof initialWidth === 'number') {
+      width = {
+        min: 0,
+        max: initialWidth,
       };
+    }
 
-      TileLogic.defaultType = 'empty';
-      TileLogic.defaultHeight = 4;
-      TileLogic.defaultWidth = 4;
-
-      TileLogic.prototype.generateTiles = function(width, height) {
-        for (var x = width.min, xl = width.max; x < xl; x++) {
-          for (var y = height.min, yl = height.max; y < yl; y++) {
-            this.tile[x] = this.tile[x] || [];
-            this.tile[x].push(TileLogic.defaultType);
-          }
-        }
+    if (typeof initialHeight === 'number') {
+      height = {
+        min: 0,
+        max: initialHeight,
       };
+    }
 
-      TileLogic.prototype.each = TileLogic.prototype.forEach = function(callback) {
-        this.map(callback);
-        return;
+    if (width == null) {
+      width = {
+        min: 0,
+        max: TileLogic.defaultWidth,
       };
+    }
 
-      TileLogic.prototype.map = function(callback) {
-        var result = [];
-
-        var tile = this.tile;
-        for (var x = 0, xl = tile.length; x < xl; x++) {
-          (function(tileY) {
-            for (var y = 0, yl = tileY.length; y < yl; y++) {
-              result.push(callback(x, y, tile[x][y]));
-            }
-          })(tile[x]);
-        }
-
-        return result;
+    if (height == null) {
+      height = {
+        min: 0,
+        max: TileLogic.defaultHeight,
       };
+    }
 
-      TileLogic.prototype.flatten = TileLogic.prototype.toArray = function() {
-        return this.map(function(x, y, content) {
-          return content;
-        });
-      };
+    this.tile = [];
+    this.width = width;
+    this.height = height;
 
-      TileLogic.prototype.flattenWithModifier = function() {
-        return this.map(function(x, y, content) {
-          return {
-            x: x,
-            y: y,
-            type: content
-          };
-        });
-      };
+    this.generateTiles(width, height);
 
-      TileLogic.prototype.equals = function(TileLogic) {
-        var result = true;
-
-        if (TileLogic instanceof TileLogic) {
-          var tile = this.tile;
-          for (var x = 0, xl = tile.length; x < xl; x++) {
-            (function(tileY) {
-              for (var y = 0, yl = tileY.length; y < yl; y++) {
-                if (TileLogic.tile[x][y] !== tile[x][y]) {
-                  result = false;
-                  return;
-                }
-              }
-            })(tile[x]);
-          }
+    if (data != null) {
+      this.each((x, y) => {
+        if (typeof data === 'function') {
+          this.tile[x][y] = data(x, y);
         } else {
-            throw new Error('Argument is not a tile map');
+          // If it's not an array, fill everything with the same object
+          // Or every row, depending how the data object is specified
+          if (Array.isArray(data)) {
+            if (Array.isArray(data[x])) {
+              this.tile[x][y] = data[x][y];
+            } else {
+              this.tile[x][y] = data[x];
+            }
+          } else {
+            this.tile[x][y] = data;
           }
-
-        return result;
-      };
-
-      return TileLogic;
-
-    })();
-
-    return TileLogic;
-  };
-
-
-  if (typeof define === 'function' && define.amd) {
-    define([], factory);
-  } else {
-    if (typeof exports !== "undefined" && exports !== null) {
-      module.exports = factory();
-    } else {
-      window.TileLogic = factory();
+        }
+      });
     }
   }
 
-}).call(this);
+  static defaultType = 'empty';
+  static defaultHeight = 4;
+  static defaultWidth = 4;
+
+  generateTiles(width, height) {
+    for (let x = width.min, xl = width.max; x < xl; x++) {
+      for (let y = height.min, yl = height.max; y < yl; y++) {
+        this.tile[x] = this.tile[x] || [];
+        this.tile[x].push(TileLogic.defaultType);
+      }
+    }
+  }
+
+  forEach(callback) {
+    this.map(callback);
+    return;
+  }
+
+  each(callback) {
+    // TODO: This will be deprecated soon
+    this.forEach(callback);
+  }
+
+  map(callback) {
+    const result = [];
+
+    const tile = this.tile;
+    for (let x = 0, xl = tile.length; x < xl; x++) {
+      (tileY => {
+        for (let y = 0, yl = tileY.length; y < yl; y++) {
+          result.push(callback(x, y, tile[x][y]));
+        }
+      })(tile[x]);
+    }
+
+    return result;
+  }
+
+  toArray() {
+    return this.map((x, y, content) => content);
+  }
+
+  flatten() {
+    // TODO: `flatten` and `flattenWithModifier` will be put together into the `flatten` function
+    return this.map((x, y, content) => ({
+      x,
+      y,
+      type: content,
+    }));
+  }
+
+  equals(tileLogic) {
+    let result = true;
+
+    if (tileLogic instanceof TileLogic) {
+      const tile = this.tile;
+      for (let x = 0, xl = tile.length; x < xl; x++) {
+        (tileY => {
+          for (let y = 0, yl = tileY.length; y < yl; y++) {
+            if (tileLogic.tile[x][y] !== tile[x][y]) {
+              result = false;
+              return;
+            }
+          }
+        })(tile[x]);
+      }
+    } else {
+      throw new Error('Argument is not a TileLogic instance');
+    }
+
+    return result;
+  }
+}
+
+export default TileLogic;
