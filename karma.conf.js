@@ -5,8 +5,8 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha', 'chai'],
     files: [
-      'dist/tilelogic.js',
-      'test/*.js'
+      'dist/tilelogic.umd.js',
+      'test/*.js',
     ],
     exclude: [],
     port: 8080,
@@ -24,6 +24,6 @@ module.exports = function (config) {
     browsers: ['PhantomJS'],
     reporters: ['progress'],
     captureTimeout: 60000,
-    singleRun: true
+    singleRun: true,
   });
 };
