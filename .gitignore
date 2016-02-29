@@ -59,3 +59,4 @@ tmp
 *.komodoproject
 
 dist
+coverage

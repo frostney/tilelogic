@@ -9,4 +9,4 @@ script:
   - npm test
 
 after_script:
-  npm run coverage && nyc report --reporter=text-lcov | coveralls
+  cat ./coverage/report-lcov/lcov.info | coveralls

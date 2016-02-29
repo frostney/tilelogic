@@ -8,6 +8,19 @@ module.exports = function (config) {
       'dist/tilelogic.umd.js',
       'test/*.js',
     ],
+    preprocessors: {
+      'dist/tilelogic.umd.js': ['coverage'],
+    },
+    coverageReporter: {
+      dir: 'coverage/',
+      reporters: [{
+        type: 'html',
+        subdir: 'report-html',
+      }, {
+        type: 'lcov',
+        subdir: 'report-lcov',
+      }],
+    },
     exclude: [],
     port: 8080,
     logLevel: config.LOG_INFO,
@@ -22,7 +35,7 @@ module.exports = function (config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: ['PhantomJS'],
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
     captureTimeout: 60000,
     singleRun: true,
   });
