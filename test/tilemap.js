@@ -1,7 +1,6 @@
 'use strict';
 
 describe('TileLogic', function () {
-
   it('is a function', function () {
     expect(TileLogic).to.be.a('function');
   });
