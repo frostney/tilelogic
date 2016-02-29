@@ -7,7 +7,7 @@
 
 Provides logic for tilemaps. There is no actual drawing involved, that is something you need to do for yourself.
 
-Demo: http://jsfiddle.net/dzr34wnv/  
+Demo: http://jsfiddle.net/frostney/dzr34wnv/5/
 
 ## Features
 * Small and simple
