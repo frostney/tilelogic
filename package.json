@@ -50,6 +50,7 @@
     "npm-run-all": "^1.5.1",
     "nyc": "^5.6.0",
     "phantomjs-prebuilt": "^2.1.4",
+    "rimraf": "^2.5.2",
     "rollup-babel-lib-bundler": "^2.3.3"
   }
 }
