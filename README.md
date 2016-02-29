@@ -1,8 +1,8 @@
 # tilelogic
 
-[![Build Status](https://travis-ci.org/freezedev/tilelogic.svg?branch=master)](https://travis-ci.org/freezedev/tilelogic)
-[![Dependency Status](https://david-dm.org/freezedev/tilelogic.svg)](https://david-dm.org/freezedev/tilelogic)
-[![devDependency Status](https://david-dm.org/freezedev/tilelogic/dev-status.svg)](https://david-dm.org/freezedev/tilelogic#info=devDependencies)
+[![Build Status](https://travis-ci.org/frostney/tilelogic.svg?branch=master)](https://travis-ci.org/frostney/tilelogic)
+[![Dependency Status](https://david-dm.org/frostney/tilelogic.svg)](https://david-dm.org/frostney/tilelogic)
+[![devDependency Status](https://david-dm.org/frostney/tilelogic/dev-status.svg)](https://david-dm.org/frostney/tilelogic#info=devDependencies)
 
 Provides logic for tilemaps. There is no actual drawing involved, that is something you need to do for yourself.
 
@@ -14,13 +14,11 @@ Demo: http://jsfiddle.net/dzr34wnv/
 * No dependencies
 
 ## Installing
-`tilelogic` is available for NPM and Bower. Use either  
-`npm install tilelogic`  
-or  
-`bower install tilelogic`  
-to install the library.
+```
+npm install tilelogic
+```
 
-Don't use Bower or NPM? Just grab the `tilelogic.js` file from the `dist` folder.
+Don't use NPM? Just grab the `tilelogic.umd.js` file from the `dist` folder or use it from NPMCDN: `https://npmcdn.com/tilelogic/dist/tilelogic.umd.js`.
 
 ## Constructing a tilemap
 
@@ -48,7 +46,7 @@ var t4 = new TileLogic(2, 2, function(x, y) {
 ## Accessing a tile
 All tiles can be accessed through the `tile` property, which is the tile array.
 
-`tilemap.tile[0][0]` for example accesses the top-left tile. 
+`tilemap.tile[0][0]` for example accesses the top-left tile.
 
 ## Helper functions
 
