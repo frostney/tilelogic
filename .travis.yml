@@ -2,17 +2,11 @@ language: node_js
 node_js:
   - "0.10"
   - "0.12"
-  - "4.0"
-  - "4.1"
-  - "4.2"
-  - "5.1"
-  - "5.2"
-  - "5.3"
-  - "5.4"
+  - 4
+  - 5
 
-before_script:
-  - npm install -g grunt-cli
-  - npm install -g bower
-  - bower install
-  - grunt
-  - grunt test
+script:
+  - npm test
+
+after_script:
+  npm run coverage && nyc report --reporter=text-lcov | coveralls
