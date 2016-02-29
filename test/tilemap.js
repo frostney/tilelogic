@@ -11,7 +11,7 @@ describe('TileLogic', function () {
     expect(t).to.be.a('object');
     expect(function() {
       TileLogic();
-    }).to.throw(Error);
+    }).to.throw(TypeError);
   });
 
   it('has default values', function() {
