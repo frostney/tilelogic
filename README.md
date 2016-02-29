@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/frostney/tilelogic.svg?branch=master)](https://travis-ci.org/frostney/tilelogic)
 [![Dependency Status](https://david-dm.org/frostney/tilelogic.svg)](https://david-dm.org/frostney/tilelogic)
 [![devDependency Status](https://david-dm.org/frostney/tilelogic/dev-status.svg)](https://david-dm.org/frostney/tilelogic#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/github/frostney/tilelogic/badge.svg?branch=master)](https://coveralls.io/github/frostney/tilelogic?branch=master)
 
 Provides logic for tilemaps. There is no actual drawing involved, that is something you need to do for yourself.
 
