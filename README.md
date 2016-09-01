@@ -19,7 +19,7 @@ Demo: http://jsfiddle.net/frostney/dzr34wnv/5/
 npm install tilelogic
 ```
 
-Don't use NPM? Just grab the `tilelogic.umd.js` file from the `dist` folder or use it from NPMCDN: `https://npmcdn.com/tilelogic/dist/tilelogic.umd.js`.
+Don't use NPM? Just grab the `tilelogic.umd.js` file from the `dist` folder or use it from NPMCDN: `https://unpkg.com/tilelogic/dist/tilelogic.umd.js`.
 
 ## Constructing a tilemap
 
