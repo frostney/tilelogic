@@ -1,6 +1,0 @@
-extends: airbnb/legacy
-env:
-  mocha: true
-globals:
-  TileLogic: true
-  expect: true
