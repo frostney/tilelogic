@@ -1,11 +1,15 @@
+type Size = { min: number, max: number };
+type ForEachIterator = (x: number, y: number, data: any) => void
+type MapIterator = (x: number, y: number, data: any) => any
+
 class TileLogic {
   tile: Array<Array<any>>
-  width: { min: number, max: number }
-  height: { min: number, max: number }
+  width: Size
+  height: Size
 
   constructor(initialWidth?, initialHeight?, data?) {
-    let width;
-    let height;
+    let width: Size;
+    let height: Size;
 
     if (typeof initialWidth === 'number') {
       width = {
@@ -42,7 +46,7 @@ class TileLogic {
     this.generateTiles(width, height);
 
     if (data != null) {
-      this.each((x, y) => {
+      this.each((x: number, y: number) => {
         if (typeof data === 'function') {
           this.tile[x][y] = data(x, y);
         } else {
@@ -66,7 +70,7 @@ class TileLogic {
   static defaultHeight = 4;
   static defaultWidth = 4;
 
-  generateTiles(width, height) {
+  generateTiles(width: Size, height: Size) {
     for (let x = width.min, xl = width.max; x < xl; x++) {
       for (let y = height.min, yl = height.max; y < yl; y++) {
         this.tile[x] = this.tile[x] || [];
@@ -75,17 +79,17 @@ class TileLogic {
     }
   }
 
-  forEach(callback) {
+  forEach(callback: ForEachIterator) {
     this.map(callback);
     return;
   }
 
-  each(callback) {
+  each(callback: ForEachIterator) {
     // TODO: This will be deprecated soon
     this.forEach(callback);
   }
 
-  map(callback) {
+  map(callback: MapIterator) {
     const result = [];
 
     for (let x = 0, xl = this.tile.length; x < xl; x++) {

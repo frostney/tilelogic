@@ -27,7 +27,7 @@ describe('TileLogic', function () {
     var t1 = new TileLogic(2, 2, 'empty');
     var t2 = new TileLogic(2, 2, ['empty', 'non-empty']);
     var t3 = new TileLogic(2, 2, [[1, 2], [3, 4]]);
-    var t4 = new TileLogic(2, 2, function(x, y) {
+    var t4 = new TileLogic(2, 2, function(x: number, y: number) {
       return x + y;
     });
 
