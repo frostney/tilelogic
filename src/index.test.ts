@@ -136,9 +136,5 @@ describe('TileLogic', function () {
 
     expect(t1.equals(t6)).toEqual(false);
     expect(t6.equals(t1)).toEqual(false);
-
-    expect(function() {
-      t1.equals({});
-    }).toThrow(Error);
   });
 });
