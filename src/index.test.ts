@@ -11,10 +11,10 @@ describe('TileLogic', function () {
   it('has default values', function() {
     var t = new TileLogic();
 
-    expect(typeof t.width).toBe('object');
-    expect(typeof t.height).toBe('object');
-    expect(t.width).toEqual({min: 0, max: TileLogic.defaultWidth});
-    expect(t.height).toEqual({min: 0, max: TileLogic.defaultHeight});
+    expect(typeof t.width).toBe('number');
+    expect(typeof t.height).toBe('number');
+    expect(t.width).toEqual(TileLogic.defaultWidth);
+    expect(t.height).toEqual(TileLogic.defaultHeight);
 
     for (var i = 0, j = TileLogic.defaultWidth; i < j; i++) {
       for (var k = 0, l = TileLogic.defaultHeight; k < l; k++) {
@@ -58,7 +58,7 @@ describe('TileLogic', function () {
     var i = 0;
 
     var toBeDone = function() {
-      if (t.width.max * t.height.max === i) {
+      if (t.width * t.height === i) {
         done();
       }
     };
