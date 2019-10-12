@@ -46,7 +46,7 @@ class TileLogic {
     this.generateTiles(width, height);
 
     if (data != null) {
-      this.each((x: number, y: number) => {
+      this.forEach((x: number, y: number) => {
         if (typeof data === 'function') {
           this.tile[x][y] = data(x, y);
         } else {
@@ -84,11 +84,6 @@ class TileLogic {
     return;
   }
 
-  each(callback: ForEachIterator) {
-    // TODO: This will be deprecated soon
-    this.forEach(callback);
-  }
-
   map(callback: MapIterator) {
     const result = [];
 
@@ -108,11 +103,6 @@ class TileLogic {
   }
 
   flatten() {
-    return this.toArray();
-  }
-
-  flattenWithModifier() {
-    // TODO: `flatten` and `flattenWithModifier` will be put together into the `flatten` function
     return this.map((x, y, content) => ({
       x,
       y,
