@@ -63,7 +63,7 @@ describe('TileLogic', function () {
       }
     };
 
-    t.each(function(x, y, type) {
+    t.forEach(function(x, y, type) {
       expect(typeof x).toBe('number');
       expect(typeof y).toBe('number');
       expect(typeof type).toBe('string');
@@ -79,17 +79,12 @@ describe('TileLogic', function () {
     expect(Array.isArray(array)).toBe(true);
     expect(array.length).toEqual(4);
     expect(array).toEqual(['empty', 'empty', 'empty', 'empty']);
-
-    var flattened = t.flatten();
-    expect(Array.isArray(flattened)).toBe(true);
-    expect(flattened.length).toEqual(4);
-    expect(flattened).toEqual(['empty', 'empty', 'empty', 'empty']);
   });
 
-  it('#flattenWithModifier', function () {
+  it('#flatten', function () {
     var t = new TileLogic(2, 2, 'empty');
 
-    var flattened = t.flattenWithModifier();
+    var flattened = t.flatten();
     expect(Array.isArray(flattened)).toBe(true);
     expect(flattened.length).toEqual(4);
     expect(flattened).toEqual([{
