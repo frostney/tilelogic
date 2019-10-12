@@ -1,11 +1,12 @@
 type ForEachIterator = (x: number, y: number, data: any) => void
 type MapIterator = (x: number, y: number, data: any) => any
 type Reviver = (x: number, y: number) => any
+type Tiles = Array<Array<any>>
 
 const DefaultReviver = () => TileLogic.defaultType;
 
 class TileLogic {
-  tile: Array<Array<any>>
+  tile: Tiles
 
   constructor(public width: number = TileLogic.defaultWidth, public height: number = TileLogic.defaultHeight, reviver: Reviver = DefaultReviver) {
     this.tile = [...Array(this.width)].map((row, x) => 
@@ -16,6 +17,13 @@ class TileLogic {
   static defaultType = 'empty';
   static defaultHeight = 4;
   static defaultWidth = 4;
+
+  static fromArray(source: Tiles) {
+    const width = source.length;
+    const height = source[0].length;
+
+    return new TileLogic(width, height, (x, y) => source[x][y]);
+  }
 
   forEach(callback: ForEachIterator) {
     this.map(callback);

@@ -31,8 +31,7 @@ describe('TileLogic', function () {
       }
       return 'non-empty';
     });
-    // var t3 = new TileLogic(2, 2, [[1, 2], [3, 4]]);
-    var t4 = new TileLogic(2, 2, function(x: number, y: number) {
+    var t3 = new TileLogic(2, 2, function(x: number, y: number) {
       return x + y;
     });
 
@@ -46,15 +45,19 @@ describe('TileLogic', function () {
     expect(t2.tile[1][0]).toEqual('non-empty');
     expect(t2.tile[1][1]).toEqual('non-empty');
 
-    // expect(t3.tile[0][0]).toEqual(1);
-    // expect(t3.tile[0][1]).toEqual(2);
-    // expect(t3.tile[1][0]).toEqual(3);
-    // expect(t3.tile[1][1]).toEqual(4);
+    expect(t3.tile[0][0]).toEqual(0);
+    expect(t3.tile[0][1]).toEqual(1);
+    expect(t3.tile[1][0]).toEqual(1);
+    expect(t3.tile[1][1]).toEqual(2);
+  });
 
-    expect(t4.tile[0][0]).toEqual(0);
-    expect(t4.tile[0][1]).toEqual(1);
-    expect(t4.tile[1][0]).toEqual(1);
-    expect(t4.tile[1][1]).toEqual(2);
+  it('.fromArray', function() {
+    var t = TileLogic.fromArray([[1, 2], [3, 4]]);
+
+    expect(t.tile[0][0]).toEqual(1);
+    expect(t.tile[0][1]).toEqual(2);
+    expect(t.tile[1][0]).toEqual(3);
+    expect(t.tile[1][1]).toEqual(4);
   });
 
   it('#forEach', function(done) {
