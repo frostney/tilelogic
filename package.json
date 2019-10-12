@@ -4,16 +4,14 @@
   "description": "Logic for tilemaps",
   "main": "dist/tilelogic.js",
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "rollup-babel-lib-bundler src/index.js --module-name TileLogic",
-    "lint": "eslint .",
-    "pretest": "npm-run-all -p lint build",
-    "test": "karma start",
-    "coverage": "nyc npm test"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint",
+    "test": "tsdx test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/freezedev/tilelogic.git"
+    "url": "https://github.com/frostney/tilelogic.git"
   },
   "keywords": [
     "game",
@@ -29,28 +27,11 @@
   "author": "Johannes Stein",
   "license": "(Unlicense OR MIT)",
   "bugs": {
-    "url": "https://github.com/freezedev/tilelogic/issues"
+    "url": "https://github.com/frostney/tilelogic/issues"
   },
   "devDependencies": {
-    "babel-eslint": "^5.0.0",
-    "babel-plugin-transform-class-properties": "^6.5.2",
-    "babel-preset-es2015-loose-rollup": "^7.0.0",
-    "chai": "^3.4.1",
-    "coveralls": "^2.11.8",
-    "eslint": "^2.2.0",
-    "eslint-config-airbnb": "^6.0.2",
-    "eslint-plugin-react": "^4.1.0",
-    "karma": "^0.13.19",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-coverage": "^0.5.3",
-    "karma-firefox-launcher": "^0.1.4",
-    "karma-mocha": "^0.2.1",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "mocha": "^2.2.1",
-    "npm-run-all": "^1.5.1",
-    "phantomjs-prebuilt": "^2.1.4",
-    "rimraf": "^2.5.2",
-    "rollup-babel-lib-bundler": "^2.3.3"
+    "@types/jest": "^24.0.18",
+    "tsdx": "^0.9.3",
+    "typescript": "^3.6.4"
   }
 }
