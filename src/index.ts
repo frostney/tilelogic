@@ -1,49 +1,11 @@
-type Size = { min: number, max: number };
 type ForEachIterator = (x: number, y: number, data: any) => void
 type MapIterator = (x: number, y: number, data: any) => any
 
 class TileLogic {
   tile: Array<Array<any>>
-  width: Size
-  height: Size
 
-  constructor(initialWidth?: Size | number, initialHeight?: Size | number, data?: any) {
-    let width: Size;
-    let height: Size;
-
-    if (typeof initialWidth === 'number') {
-      width = {
-        min: 0,
-        max: initialWidth,
-      };
-    }
-
-    if (typeof initialHeight === 'number') {
-      height = {
-        min: 0,
-        max: initialHeight,
-      };
-    }
-
-    if (width == null) {
-      width = {
-        min: 0,
-        max: TileLogic.defaultWidth,
-      };
-    }
-
-    if (height == null) {
-      height = {
-        min: 0,
-        max: TileLogic.defaultHeight,
-      };
-    }
-
-    this.tile = [];
-    this.width = width;
-    this.height = height;
-
-    this.generateTiles(width, height);
+  constructor(public width: number = TileLogic.defaultWidth, public height: number = TileLogic.defaultHeight, data?: any) {
+    this.generateTiles();
 
     if (data != null) {
       this.forEach((x: number, y: number) => {
@@ -70,13 +32,10 @@ class TileLogic {
   static defaultHeight = 4;
   static defaultWidth = 4;
 
-  generateTiles(width: Size, height: Size) {
-    for (let x = width.min, xl = width.max; x < xl; x++) {
-      for (let y = height.min, yl = height.max; y < yl; y++) {
-        this.tile[x] = this.tile[x] || [];
-        this.tile[x].push(TileLogic.defaultType);
-      }
-    }
+  generateTiles() {
+    this.tile = [...Array(this.width)].map(row => {
+      return [...Array(this.height)].map(() => TileLogic.defaultType);
+    });
   }
 
   forEach(callback: ForEachIterator) {
@@ -114,11 +73,11 @@ class TileLogic {
     let result = true;
 
     if (tileLogic instanceof TileLogic) {
-      if (this.width.min !== tileLogic.width.min || this.width.max !== tileLogic.width.max) {
+      if (this.width !== tileLogic.width) {
         return false;
       }
 
-      if (this.height.min !== tileLogic.height.min || this.height.max !== tileLogic.height.max) {
+      if (this.height !== tileLogic.height) {
         return false;
       }
 
