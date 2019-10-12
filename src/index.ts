@@ -7,7 +7,7 @@ class TileLogic {
   width: Size
   height: Size
 
-  constructor(initialWidth?, initialHeight?, data?) {
+  constructor(initialWidth?: Size | number, initialHeight?: Size | number, data?: any) {
     let width: Size;
     let height: Size;
 
@@ -120,7 +120,7 @@ class TileLogic {
     }));
   }
 
-  equals(tileLogic) {
+  equals(tileLogic: TileLogic) {
     let result = true;
 
     if (tileLogic instanceof TileLogic) {
