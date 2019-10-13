@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint '**/*.ts' --fix",
     "test": "tsdx test"
   },
   "repository": {
@@ -31,6 +31,17 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-eslint": "^10.0.0",
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb-typescript": "^5.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "tsdx": "^0.9.3",
     "typescript": "^3.6.4"
   }
