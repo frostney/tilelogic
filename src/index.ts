@@ -1,21 +1,27 @@
-type ForEachIterator = (x: number, y: number, data: any) => void
-type MapIterator = (x: number, y: number, data: any) => any
-type Reviver = (x: number, y: number) => any
-type Tiles = Array<Array<any>>
+type ForEachIterator = (x: number, y: number, data: any) => void;
+type MapIterator = (x: number, y: number, data: any) => any;
+type Reviver = (x: number, y: number) => any;
+type Tiles = Array<Array<any>>;
 
 const DefaultReviver = () => TileLogic.defaultType;
 
 class TileLogic {
-  tile: Tiles
+  tile: Tiles;
 
-  constructor(public width: number = TileLogic.defaultWidth, public height: number = TileLogic.defaultHeight, reviver: Reviver = DefaultReviver) {
-    this.tile = [...Array(this.width)].map((row, x) => 
+  constructor(
+    public width: number = TileLogic.defaultWidth,
+    public height: number = TileLogic.defaultHeight,
+    reviver: Reviver = DefaultReviver
+  ) {
+    this.tile = [...Array(this.width)].map((row, x) =>
       [...Array(this.height)].map((cell, y) => reviver(x, y))
     );
   }
 
-  static defaultType = 'empty';
+  static defaultType = "empty";
+
   static defaultHeight = 4;
+
   static defaultWidth = 4;
 
   static fromArray(source: Tiles) {
@@ -27,7 +33,6 @@ class TileLogic {
 
   forEach(callback: ForEachIterator) {
     this.map(callback);
-    return;
   }
 
   map(callback: MapIterator) {
@@ -52,7 +57,7 @@ class TileLogic {
     return this.map((x, y, content) => ({
       x,
       y,
-      type: content,
+      type: content
     }));
   }
 
@@ -79,7 +84,7 @@ class TileLogic {
         })(this.tile[x]);
       }
     } else {
-      throw new Error('Argument is not a TileLogic instance');
+      throw new Error("Argument is not a TileLogic instance");
     }
 
     return result;
