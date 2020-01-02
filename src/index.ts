@@ -24,7 +24,7 @@ class TileLogic {
 
   static defaultWidth = 4;
 
-  static fromArray(source: Tiles) {
+  static fromArray(source: Tiles): TileLogic {
     const width = source.length;
     const height = source[0].length;
 
@@ -35,7 +35,7 @@ class TileLogic {
     this.map(callback);
   }
 
-  map(callback: MapIterator) {
+  map(callback: MapIterator): Array<any> {
     const result = [];
 
     for (let x = 0, xl = this.tile.length; x < xl; x++) {
@@ -49,11 +49,11 @@ class TileLogic {
     return result;
   }
 
-  toArray() {
+  toArray(): Array<Array<any>> {
     return this.map((x, y, content) => content);
   }
 
-  flatten() {
+  flatten(): Array<{x: number, y: number, type: any}> {
     return this.map((x, y, content) => ({
       x,
       y,
@@ -61,7 +61,7 @@ class TileLogic {
     }));
   }
 
-  equals(tileLogic: TileLogic) {
+  equals(tileLogic: TileLogic): boolean {
     let result = true;
 
     if (tileLogic instanceof TileLogic) {
