@@ -1,6 +1,6 @@
 # tilelogic
 
-![](https://github.com/actions/hello-world/workflows/nodejs/badge.svg)
+![](https://github.com/actions/frostney/tilelogic/workflows/.github/workflows/nodejs/badge.svg)
 
 Provides logic for tilemaps. There is no actual drawing involved, that is something you need to do for yourself.
 
