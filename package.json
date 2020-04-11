@@ -30,19 +30,19 @@
     "url": "https://github.com/frostney/tilelogic/issues"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "babel-eslint": "^10.0.0",
-    "eslint": "^5.0.0",
-    "eslint-config-airbnb-typescript": "^5.0.0",
-    "eslint-config-prettier": "^6.4.0",
-    "eslint-plugin-flowtype": "^3.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "@types/jest": "25.2.1",
+    "@typescript-eslint/eslint-plugin": "2.27.0",
+    "@typescript-eslint/parser": "2.27.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-typescript": "7.2.1",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-plugin-flowtype": "4.7.0",
+    "eslint-plugin-import": "2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "tsdx": "^0.9.3",
-    "typescript": "^3.6.4"
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "3.0.0",
+    "tsdx": "0.13.1",
+    "typescript": "3.8.3"
   }
 }
