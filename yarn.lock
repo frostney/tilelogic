@@ -1472,22 +1472,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:26.0.10":
-  version: 26.0.10
-  resolution: "@types/jest@npm:26.0.10"
-  dependencies:
-    jest-diff: ^25.2.1
-    pretty-format: ^25.2.1
-  checksum: bb9f6b06c8c22b05d139b0193110a56cf47f1a912e2ab65ef501ba1888d948660be774204f183bf7ab4c94d59fc3ba8e20f4795dce5f637553bf7750f27a2a4f
-  languageName: node
-  linkType: hard
-
 "@types/jest@npm:^24.0.15":
   version: 24.9.1
   resolution: "@types/jest@npm:24.9.1"
   dependencies:
     jest-diff: ^24.3.0
   checksum: 2a950309a2d848c292b0c324aa124e4833f6446ddfcdb1f854c454000738ab918ac45f57ddbd667491381ad55b138a21d7aa049d7fe642b6ea87095990aa054b
+  languageName: node
+  linkType: hard
+
+"@types/jest@npm:^26.0.14":
+  version: 26.0.14
+  resolution: "@types/jest@npm:26.0.14"
+  dependencies:
+    jest-diff: ^25.2.1
+    pretty-format: ^25.2.1
+  checksum: bddbe82d12217c5217efabcad09e4fbe2c5eaecf9392da9b0edbe4c3d9fb240b3fab914f88c5f3708f6d5046640a2782458944873eae4ac01abcb17d32d3c78f
   languageName: node
   linkType: hard
 
@@ -8419,7 +8419,7 @@ resolve@1.1.7:
   version: 0.0.0-use.local
   resolution: "tilelogic@workspace:."
   dependencies:
-    "@types/jest": 26.0.10
+    "@types/jest": ^26.0.14
     "@typescript-eslint/eslint-plugin": 3.9.1
     "@typescript-eslint/parser": 3.9.1
     babel-eslint: 10.1.0
