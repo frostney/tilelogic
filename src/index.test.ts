@@ -1,15 +1,8 @@
 import TileLogic from "./index";
 
 describe("TileLogic", function() {
-  it("can be instantiated", function() {
-    const t = new TileLogic();
-
-    expect(typeof t).toBe("object");
-    expect(t instanceof TileLogic).toBe(true);
-  });
-
   it("has default values", function() {
-    const t = new TileLogic();
+    const t = new TileLogic<number>();
 
     expect(typeof t.width).toBe("number");
     expect(typeof t.height).toBe("number");
@@ -18,50 +11,44 @@ describe("TileLogic", function() {
 
     for (let i = 0, j = TileLogic.defaultWidth; i < j; i++) {
       for (let k = 0, l = TileLogic.defaultHeight; k < l; k++) {
-        expect(t.tile[i][k]).toEqual(TileLogic.defaultType);
+        expect(t.get({x: i, y: k })).toEqual(null);
       }
     }
   });
 
   it("allows different data type values", function() {
-    const t1 = new TileLogic(2, 2, () => "empty");
-    const t2 = new TileLogic(2, 2, (x: number, y: number) => {
+    const t2 = new TileLogic<string>(2, 2, (x: number, y: number) => {
       if (x === 0) {
         return "empty";
       }
       return "non-empty";
     });
-    const t3 = new TileLogic(2, 2, function(x: number, y: number) {
+    const t3 = new TileLogic<number>(2, 2, function(x: number, y: number) {
       return x + y;
     });
 
-    expect(t1.tile[0][0]).toEqual("empty");
-    expect(t1.tile[0][1]).toEqual("empty");
-    expect(t1.tile[1][0]).toEqual("empty");
-    expect(t1.tile[1][1]).toEqual("empty");
+    expect(t2.get({x: 0, y:0 })).toEqual("empty");
+    expect(t2.get({x: 0, y:1 })).toEqual("empty");
+    expect(t2.get({x: 1, y:0 })).toEqual("non-empty");
+    expect(t2.get({x: 1, y:1 })).toEqual("non-empty");
 
-    expect(t2.tile[0][0]).toEqual("empty");
-    expect(t2.tile[0][1]).toEqual("empty");
-    expect(t2.tile[1][0]).toEqual("non-empty");
-    expect(t2.tile[1][1]).toEqual("non-empty");
-
-    expect(t3.tile[0][0]).toEqual(0);
-    expect(t3.tile[0][1]).toEqual(1);
-    expect(t3.tile[1][0]).toEqual(1);
-    expect(t3.tile[1][1]).toEqual(2);
+    expect(t3.get({x: 0, y:0 })).toEqual(0);
+    expect(t3.get({x: 0, y:1 })).toEqual(1);
+    expect(t3.get({x: 1, y:0 })).toEqual(1);
+    expect(t3.get({x: 1, y:1 })).toEqual(2);
   });
 
   it(".fromArray", function() {
-    const t = TileLogic.fromArray([[1, 2], [3, 4]]);
+    const t = TileLogic.fromArray<number>([[1, 2], [3, 4]]);
 
-    expect(t.tile[0][0]).toEqual(1);
-    expect(t.tile[0][1]).toEqual(2);
-    expect(t.tile[1][0]).toEqual(3);
-    expect(t.tile[1][1]).toEqual(4);
+    expect(t.get({ x: 0, y: 0 })).toEqual(1);
+    expect(t.get({ x: 0, y: 1 })).toEqual(2);
+    expect(t.get({ x: 1, y: 0 })).toEqual(3);
+    expect(t.get({ x: 1, y: 1 })).toEqual(4);
   });
 
   it("#forEach", function(done) {
-    const t = new TileLogic(4, 4, () => "empty");
+    const t = new TileLogic<string>(4, 4, () => "empty");
 
     let i = 0;
 
@@ -81,7 +68,7 @@ describe("TileLogic", function() {
   });
 
   it("#toArray", function() {
-    const t = new TileLogic(2, 2, () => "empty");
+    const t = new TileLogic<string>(2, 2, () => "empty");
 
     const array = t.toArray();
     expect(Array.isArray(array)).toBe(true);
@@ -90,7 +77,7 @@ describe("TileLogic", function() {
   });
 
   it("#flatten", function() {
-    const t = new TileLogic(2, 2, () => "empty");
+    const t = new TileLogic<string>(2, 2, () => "empty");
 
     const flattened = t.flatten();
     expect(Array.isArray(flattened)).toBe(true);
@@ -99,36 +86,36 @@ describe("TileLogic", function() {
       {
         x: 0,
         y: 0,
-        type: "empty"
+        data: "empty"
       },
       {
         x: 0,
         y: 1,
-        type: "empty"
+        data: "empty"
       },
       {
         x: 1,
         y: 0,
-        type: "empty"
+        data: "empty"
       },
       {
         x: 1,
         y: 1,
-        type: "empty"
+        data: "empty"
       }
     ]);
   });
 
   it("#equals", function() {
-    const t1 = new TileLogic(2, 2, () => "empty");
-    const t2 = new TileLogic(2, 2, () => "empty");
+    const t1 = new TileLogic<string>(2, 2, () => "empty");
+    const t2 = new TileLogic<string>(2, 2, () => "empty");
 
-    const t3 = new TileLogic(2, 3, () => "empty");
-    const t4 = new TileLogic(3, 2, () => "empty");
+    const t3 = new TileLogic<string>(2, 3, () => "empty");
+    const t4 = new TileLogic<string>(3, 2, () => "empty");
 
-    const t5 = new TileLogic(3, 3, () => "empty");
+    const t5 = new TileLogic<string>(3, 3, () => "empty");
 
-    const t6 = new TileLogic(2, 2, () => "not-empty");
+    const t6 = new TileLogic<string>(2, 2, () => "not-empty");
 
     expect(t1.equals(t2)).toEqual(true);
     expect(t2.equals(t1)).toEqual(true);
