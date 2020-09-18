@@ -2,6 +2,8 @@ type ForEachIterator<T> = (x: number, y: number, data: T) => void;
 type MapIterator<T, U> = (x: number, y: number, data: T) => U;
 type Reviver<T> = (x: number, y: number) => T;
 type Tiles<T> = Array<Array<T>>;
+type Position = { x: number, y: number };
+type Tile<T> = Position & { data: T };
 
 const DefaultReviver = () => null;
 
@@ -50,15 +52,19 @@ class TileLogic<T> {
     return this.map<T>((x, y, content) => content);
   }
 
-  flatten(): Array<{x: number, y: number, data: T}> {
-    return this.map<{x: number, y: number, data: T}>((x, y, content) => ({
+  flatten(): Array<Tile<T>> {
+    return this.map<Tile<T>>((x, y, content) => ({
       x,
       y,
       data: content
     }));
   }
 
-  set(tile: {x: number, y: number, data: T}) {
+  get(pos: Position) {
+    return this.tile[pos.x][pos.y];
+  }
+
+  set(tile: Tile<T>) {
     this.tile[tile.x][tile.y] = tile.data;
   }
 

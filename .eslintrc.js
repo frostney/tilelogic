@@ -5,6 +5,8 @@ module.exports = {
     "plugin:prettier/recommended"
   ],
   "env": {
+    "browser": true,
+    "node": true,
     "jest": true
   }
 }
