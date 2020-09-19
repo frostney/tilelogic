@@ -2,7 +2,7 @@ type ForEachIterator<T> = (x: number, y: number, data: T) => void;
 type MapIterator<T, U> = (x: number, y: number, data: T) => U;
 type Reviver<T> = (x: number, y: number) => T;
 type Tiles<T> = Array<Array<T>>;
-type Position = { x: number, y: number };
+export type Position = { x: number, y: number };
 export type Tile<T> = Position & { data: T };
 
 const DefaultReviver = () => null;
