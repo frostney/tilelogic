@@ -1,4 +1,4 @@
-import TileLogic from "./index";
+import TileLogic from "./TileLogic";
 
 describe("TileLogic", function() {
   it("has default values", function() {
