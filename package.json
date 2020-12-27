@@ -21,6 +21,12 @@
       "limit": "800 B"
     }
   ],
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/frostney/tilelogic.git"
@@ -40,6 +46,9 @@
   "license": "(Unlicense OR MIT)",
   "bugs": {
     "url": "https://github.com/frostney/tilelogic/issues"
+  },
+  "jest": {
+    "collectCoverage": true
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.9.1",
