@@ -2,7 +2,7 @@ type ForEachIterator<T> = (x: number, y: number, data: T) => void;
 type MapIterator<T, U> = (x: number, y: number, data: T) => U;
 type Reviver<T> = (x: number, y: number) => T;
 type Tiles<T> = Array<Array<T>>;
-export type Position = { x: number, y: number };
+export type Position = { x: number; y: number };
 export type Tile<T> = Position & { data: T };
 
 const DefaultReviver = () => null;
@@ -20,8 +20,8 @@ class TileLogic<T> {
     );
   }
 
-  static defaultHeight = 4;
-  static defaultWidth = 4;
+  static defaultHeight: number = 4;
+  static defaultWidth: number = 4;
 
   static fromArray<T>(source: Tiles<T>): TileLogic<T> {
     const width = source.length;
