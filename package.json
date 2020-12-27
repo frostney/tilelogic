@@ -47,6 +47,9 @@
   "bugs": {
     "url": "https://github.com/frostney/tilelogic/issues"
   },
+  "jest": {
+    "collectCoverage": true
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.9.1",
     "@types/jest": "^26.0.19",

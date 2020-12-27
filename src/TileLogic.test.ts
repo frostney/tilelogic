@@ -1,3 +1,4 @@
+import { hasUncaughtExceptionCaptureCallback } from 'process';
 import TileLogic from './TileLogic';
 
 describe('TileLogic', function() {
@@ -79,6 +80,20 @@ describe('TileLogic', function() {
     expect(array).toEqual(['empty', 'empty', 'empty', 'empty']);
   });
 
+  it('#get', () => {
+    const t = new TileLogic<string>(2, 2, () => 'empty');
+
+    expect(t.get({ x: 0, y: 0 })).toEqual('empty');
+  });
+
+  it('#set', () => {
+    const t = new TileLogic<string>(2, 2, () => 'empty');
+
+    t.set({ x: 1, y: 1, data: 'hello!' });
+
+    expect(t.get({ x: 1, y: 1 })).toEqual('hello!');
+  });
+
   it('#flatten', function() {
     const t = new TileLogic<string>(2, 2, () => 'empty');
 
@@ -134,5 +149,9 @@ describe('TileLogic', function() {
 
     expect(t1.equals(t6)).toEqual(false);
     expect(t6.equals(t1)).toEqual(false);
+
+    expect(() => {
+      t1.equals(null);
+    }).toThrow();
   });
 });
