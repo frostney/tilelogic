@@ -53,15 +53,15 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.9.1",
     "@types/jest": "^26.0.19",
-    "@typescript-eslint/eslint-plugin": "4.1.1",
-    "@typescript-eslint/parser": "4.1.1",
+    "@typescript-eslint/eslint-plugin": "4.11.0",
+    "@typescript-eslint/parser": "4.11.0",
     "babel-eslint": "10.1.0",
-    "eslint": "7.9.0",
-    "eslint-config-airbnb-typescript": "10.0.0",
-    "eslint-config-prettier": "6.11.0",
-    "eslint-plugin-import": "2.22.0",
+    "eslint": "7.16.0",
+    "eslint-config-airbnb-typescript": "12.0.0",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-plugin-import": "2.22.1",
     "size-limit": "^4.9.1",
-    "tsdx": "0.13.3",
+    "tsdx": "0.14.1",
     "typescript": "4.0.3"
   }
 }
