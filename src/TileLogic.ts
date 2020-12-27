@@ -56,7 +56,7 @@ class TileLogic<T> {
     return this.map<Tile<T>>((x, y, content) => ({
       x,
       y,
-      data: content
+      data: content,
     }));
   }
 
@@ -91,7 +91,7 @@ class TileLogic<T> {
         })(this.tile[x]);
       }
     } else {
-      throw new Error("Argument is not a TileLogic instance");
+      throw new Error('Argument is not a TileLogic instance');
     }
 
     return result;
