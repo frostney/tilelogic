@@ -38,11 +38,9 @@ class TileLogic<T> {
     const result = [];
 
     for (let x = 0, xl = this.tile.length; x < xl; x++) {
-      (tileY => {
-        for (let y = 0, yl = tileY.length; y < yl; y++) {
-          result.push(callback(x, y, this.tile[x][y]));
-        }
-      })(this.tile[x]);
+      for (let y = 0, yl = this.tile[x].length; y < yl; y++) {
+        result.push(callback(x, y, this.tile[x][y]));
+      }
     }
 
     return result;
@@ -71,27 +69,25 @@ class TileLogic<T> {
   equals(tileLogic: TileLogic<T>): boolean {
     let result = true;
 
-    if (tileLogic instanceof TileLogic) {
-      if (this.width !== tileLogic.width) {
-        return false;
-      }
-
-      if (this.height !== tileLogic.height) {
-        return false;
-      }
-
-      for (let x = 0, xl = this.tile.length; x < xl; x++) {
-        (tileY => {
-          for (let y = 0, yl = tileY.length; y < yl; y++) {
-            if (tileLogic.tile[x][y] !== this.tile[x][y]) {
-              result = false;
-              return;
-            }
-          }
-        })(this.tile[x]);
-      }
-    } else {
+    if (!(tileLogic instanceof TileLogic)) {
       throw new Error('Argument is not a TileLogic instance');
+    }
+
+    if (this.width !== tileLogic.width) {
+      return false;
+    }
+
+    if (this.height !== tileLogic.height) {
+      return false;
+    }
+
+    for (let x = 0, xl = this.tile.length; x < xl; x++) {
+      for (let y = 0, yl = this.tile[x].length; y < yl; y++) {
+        if (tileLogic.tile[x][y] !== this.tile[x][y]) {
+          result = false;
+          return;
+        }
+      }
     }
 
     return result;
