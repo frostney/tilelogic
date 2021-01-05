@@ -14,11 +14,11 @@
   "size-limit": [
     {
       "path": "dist/tilelogic.cjs.production.min.js",
-      "limit": "800 B"
+      "limit": "700 B"
     },
     {
       "path": "dist/tilelogic.esm.js",
-      "limit": "800 B"
+      "limit": "700 B"
     }
   ],
   "prettier": {
