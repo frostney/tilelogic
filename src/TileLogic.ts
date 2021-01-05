@@ -67,8 +67,6 @@ class TileLogic<T> {
   }
 
   equals(tileLogic: TileLogic<T>): boolean {
-    let result = true;
-
     if (!(tileLogic instanceof TileLogic)) {
       throw new Error('Argument is not a TileLogic instance');
     }
@@ -84,13 +82,12 @@ class TileLogic<T> {
     for (let x = 0, xl = this.tile.length; x < xl; x++) {
       for (let y = 0, yl = this.tile[x].length; y < yl; y++) {
         if (tileLogic.tile[x][y] !== this.tile[x][y]) {
-          result = false;
-          return;
+          return false;
         }
       }
     }
 
-    return result;
+    return true;
   }
 }
 
