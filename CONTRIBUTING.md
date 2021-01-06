@@ -1,13 +1,13 @@
-JavaScript style guide
-* Two spaces for indentation
-* Semicolons where semicolons should be
-* Commas at the end
-* Single quotes are prefered
-* Variables should not have underscores (except for CoffeeScript-generated code)
+JavaScript style guide (Basically AirBnB JavaScript style guide)
 
-Configuration can be found at `.jshintrc`.  
+- Two spaces for indentation
+- Semicolons where semicolons should be
+- Commas at the end
+- Single quotes are prefered
 
-Please note that gameboard is public domain (See LICENSE)
+Configuration can be found at `.eslintrc.js`.
+
+Please note that tilemap is public domain (See LICENSE)
 
 For all non-trivial contributions, I require you to add this waiver to your
 contribution:
