@@ -52,8 +52,8 @@ class TileLogic<T> {
     return result;
   }
 
-  toArray(): Array<T> {
-    return this.map<T>((x: number, y: number, content: T) => content);
+  toArray(): Tiles<T> {
+    return this.tile;
   }
 
   flatten(): Array<Tile<T>> {

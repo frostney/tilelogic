@@ -76,8 +76,12 @@ describe('TileLogic', function() {
 
     const array = t.toArray();
     expect(Array.isArray(array)).toBe(true);
-    expect(array.length).toEqual(4);
-    expect(array).toEqual(['empty', 'empty', 'empty', 'empty']);
+    expect(array.length).toEqual(2);
+    expect(array[0].length).toEqual(2);
+    expect(array).toEqual([
+      ['empty', 'empty'],
+      ['empty', 'empty'],
+    ]);
   });
 
   it('#get', () => {
