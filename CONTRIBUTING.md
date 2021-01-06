@@ -7,12 +7,12 @@ JavaScript style guide (Basically AirBnB JavaScript style guide)
 
 Configuration can be found at `.eslintrc.js`.
 
-Please note that tilemap is public domain (See LICENSE)
+Please note that tilelogic is public domain (See LICENSE)
 
 For all non-trivial contributions, I require you to add this waiver to your
 contribution:
 
-# Copyright waiver for <http://github.com/freezedev/tilemap>
+# Copyright waiver for <http://github.com/frostney/tilelogic>
 
 I dedicate any and all copyright interest in this software to the
 public domain. I make this dedication for the benefit of the public at
