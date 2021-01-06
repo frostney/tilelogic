@@ -2,8 +2,8 @@ import TileLogic, { Position } from './TileLogic';
 
 type OptionalPosition = { x?: number; y?: number };
 type PositionCallback = (pos: Position) => OptionalPosition;
-const changePosition = (position: Position = { x: 0, y: 0 }) => (
-  callback: PositionCallback = (p: Position) => p
+const changePosition = (position: Position) => (
+  callback: PositionCallback
 ): Position => {
   return { ...position, ...callback(position) };
 };
