@@ -1,3 +1,5 @@
+import TileCursor from './TileCursor';
+
 type ForEachIterator<T> = (x: number, y: number, data: T) => void;
 type MapIterator<T, U> = (x: number, y: number, data: T) => U;
 type Reviver<T> = (x: number, y: number) => T;
@@ -15,8 +17,8 @@ class TileLogic<T> {
     public height: number = TileLogic.defaultHeight,
     reviver: Reviver<T> = DefaultReviver
   ) {
-    this.tile = [...Array(this.height)].map((column, x) =>
-      [...Array(this.width)].map((cell, y) => reviver(x, y))
+    this.tile = [...Array(this.height)].map((column: number, x: number) =>
+      [...Array(this.width)].map((cell: number, y: number) => reviver(x, y))
     );
   }
 
@@ -27,7 +29,11 @@ class TileLogic<T> {
     const width = source.length;
     const height = source[0].length;
 
-    return new TileLogic<T>(width, height, (x, y) => source[x][y]);
+    return new TileLogic<T>(
+      width,
+      height,
+      (x: number, y: number) => source[x][y]
+    );
   }
 
   forEach(callback: ForEachIterator<T>) {
@@ -47,15 +53,19 @@ class TileLogic<T> {
   }
 
   toArray(): Array<T> {
-    return this.map<T>((x, y, content) => content);
+    return this.map<T>((x: number, y: number, content: T) => content);
   }
 
   flatten(): Array<Tile<T>> {
-    return this.map<Tile<T>>((x, y, content) => ({
+    return this.map<Tile<T>>((x: number, y: number, content: T) => ({
       x,
       y,
       data: content,
     }));
+  }
+
+  cursor(pos: Position): TileCursor<T> {
+    return new TileCursor<T>(this, pos);
   }
 
   get(pos: Position): T {

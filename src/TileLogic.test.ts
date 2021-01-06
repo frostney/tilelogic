@@ -1,4 +1,4 @@
-import { hasUncaughtExceptionCaptureCallback } from 'process';
+import TileCursor from './TileCursor';
 import TileLogic from './TileLogic';
 
 describe('TileLogic', function() {
@@ -62,7 +62,7 @@ describe('TileLogic', function() {
       }
     };
 
-    t.forEach(function(x, y, type) {
+    t.forEach(function(x: number, y: number, type: string) {
       expect(typeof x).toBe('number');
       expect(typeof y).toBe('number');
       expect(typeof type).toBe('string');
@@ -92,6 +92,15 @@ describe('TileLogic', function() {
     t.set({ x: 1, y: 1, data: 'hello!' });
 
     expect(t.get({ x: 1, y: 1 })).toEqual('hello!');
+  });
+
+  it('#cursor', () => {
+    const t = new TileLogic<string>(2, 2, () => 'empty');
+
+    const cursor = t.cursor({ x: 0, y: 0 });
+
+    expect(cursor).toBeDefined();
+    expect(cursor).toBeInstanceOf(TileCursor);
   });
 
   it('#flatten', function() {
