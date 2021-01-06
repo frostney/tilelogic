@@ -1,8 +1,8 @@
 {
   "name": "tilelogic",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Logic for tilemaps",
-  "main": "dist/tilelogic.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
