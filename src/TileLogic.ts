@@ -13,8 +13,8 @@ class TileLogic<T> {
   protected tile: Tiles<T>;
 
   constructor(
-    public width: number = TileLogic.defaultWidth,
-    public height: number = TileLogic.defaultHeight,
+    public readonly width: number = TileLogic.defaultWidth,
+    public readonly height: number = TileLogic.defaultHeight,
     reviver: Reviver<T> = DefaultReviver
   ) {
     this.tile = [...Array(this.height)].map((column: number, x: number) =>
